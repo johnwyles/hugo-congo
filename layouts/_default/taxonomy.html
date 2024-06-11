@@ -3,7 +3,7 @@
     {{ if .Params.showBreadcrumbs | default (.Site.Params.list.showBreadcrumbs | default false) }}
       {{ partial "breadcrumbs.html" . }}
     {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title | emojify }}</h1>
   </header>
   {{ if .Content }}
     <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
@@ -19,7 +19,7 @@
           <a
             class="text-xl font-medium decoration-primary-500 hover:underline hover:underline-offset-2"
             href="{{ .Page.RelPermalink }}"
-            >{{ .Page.Title }}</a
+            >{{ .Page.Title | emojify }}</a
           >
           {{ if $.Site.Params.taxonomy.showTermCount | default true }}
             <span class="px-2 text-base text-primary-500">&middot;</span>
